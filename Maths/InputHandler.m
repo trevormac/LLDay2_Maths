@@ -10,4 +10,13 @@
 
 @implementation InputHandler
 
++ (NSString *)resultTrimmed
+{
+    char inputChars[255];
+    fgets(inputChars, 255, stdin);
+    NSString *result = [NSString stringWithCString:inputChars encoding:NSUTF8StringEncoding];
+    NSString *resultTrimmed = [result stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    return resultTrimmed;
+}
+
 @end

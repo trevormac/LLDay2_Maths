@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AdditionQuestion.h"
+#import "InputHandler.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -18,13 +19,14 @@ int main(int argc, const char * argv[]) {
             NSLog(@"%@", startQuestion.question);
             
             //User answers the question
-            char inputChars[255];
-            fgets(inputChars, 255, stdin);
+//            char inputChars[255];
+//            fgets(inputChars, 255, stdin);
             // C style user input gets converted to a string:
-            NSString *result = [NSString stringWithCString:inputChars encoding:NSUTF8StringEncoding];
-            //String gets the /n removed and the whitespace removed
-            NSString *resultTrimmed = [result stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-            NSLog(@"%@", resultTrimmed);
+//            NSString *result = [NSString stringWithCString:inputChars encoding:NSUTF8StringEncoding];
+//            NSString *resultTrimmed = [result stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+//            NSLog(@"%@", resultTrimmed);
+            //Calls the resultTrimmed method from InputHandler class
+            NSString *resultTrimmed = [InputHandler resultTrimmed];
             
             NSInteger givenAnswer = [resultTrimmed integerValue];
             if (givenAnswer == startQuestion.answer) {
