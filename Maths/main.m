@@ -9,34 +9,32 @@
 #import <Foundation/Foundation.h>
 #import "AdditionQuestion.h"
 #import "InputHandler.h"
+#import "ScoreKeeper.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        ScoreKeeper *score = [[ScoreKeeper alloc]init];
         int x = 1;
         while (x == 1){
+            
             //Call our random number addition method
             AdditionQuestion *startQuestion = [[AdditionQuestion alloc]init];
             NSLog(@"%@", startQuestion.question);
             
-            //User answers the question
-//            char inputChars[255];
-//            fgets(inputChars, 255, stdin);
-            // C style user input gets converted to a string:
-//            NSString *result = [NSString stringWithCString:inputChars encoding:NSUTF8StringEncoding];
-//            NSString *resultTrimmed = [result stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-//            NSLog(@"%@", resultTrimmed);
-            //Calls the resultTrimmed method from InputHandler class
             NSString *resultTrimmed = [InputHandler resultTrimmed];
             
             NSInteger givenAnswer = [resultTrimmed integerValue];
+            [score total];
             if (givenAnswer == startQuestion.answer) {
                 NSLog(@"Correct!");
+                [score right];
             }else{
                 NSLog(@"Wrong!");
+                [score wrong];
             }
             if ([resultTrimmed isEqualToString:@"quit"])
                 break;
-           
+            [score scoreSummary];
             
         }
         
