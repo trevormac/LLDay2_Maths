@@ -10,10 +10,13 @@
 #import "AdditionQuestion.h"
 #import "InputHandler.h"
 #import "ScoreKeeper.h"
+#import "QuestionManager.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         ScoreKeeper *score = [[ScoreKeeper alloc]init];
+        QuestionManager *questionsManager = [[QuestionManager alloc]init];
+        
         int x = 1;
         while (x == 1){
             
@@ -21,9 +24,14 @@ int main(int argc, const char * argv[]) {
             AdditionQuestion *startQuestion = [[AdditionQuestion alloc]init];
             NSLog(@"%@", startQuestion.question);
             
+            //Call our user input resultTrimmed method
             NSString *resultTrimmed = [InputHandler resultTrimmed];
             
+            //Convert to an integer
             NSInteger givenAnswer = [resultTrimmed integerValue];
+            
+            
+            //Increment the score total
             [score total];
             if (givenAnswer == startQuestion.answer) {
                 NSLog(@"Correct!");
@@ -35,7 +43,10 @@ int main(int argc, const char * argv[]) {
             if ([resultTrimmed isEqualToString:@"quit"])
                 break;
             [score scoreSummary];
-            
+            [questionsManager.questions addObject:startQuestion];
+            [questionsManager timeOutput];
+            NSString *timeOutputLogged = [questionsManager timeOutput];
+            NSLog(@"%@", timeOutputLogged);
         }
         
         

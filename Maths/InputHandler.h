@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AdditionQuestion.h"
 
 @interface InputHandler : NSObject
 
 + (NSString *)resultTrimmed;
+
 
 @end

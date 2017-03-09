@@ -16,7 +16,8 @@
     fgets(inputChars, 255, stdin);
     NSString *result = [NSString stringWithCString:inputChars encoding:NSUTF8StringEncoding];
     NSString *resultTrimmed = [result stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    return resultTrimmed;
+        return resultTrimmed;
 }
+
 
 @end

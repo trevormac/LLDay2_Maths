@@ -13,12 +13,24 @@
 - (instancetype)init {
     //makes sure parent class initializes
     if (self = [super init]) {
+        _startTime = [NSDate date];
         int a = arc4random_uniform(20);
         int b = arc4random_uniform(30);
         _question = [NSString stringWithFormat:@"What is %d + %d", a, b];
         _answer = a + b;
+        
     }
     return self;
+}
+//Overiding getter
+-(NSInteger)answer {
+    _endTime = [NSDate date];
+    return _answer;
+}
+- (NSTimeInterval)answerTime
+{
+    NSTimeInterval secondsTaken = [_endTime timeIntervalSinceDate:_startTime];
+    return secondsTaken;
 }
 
 @end
