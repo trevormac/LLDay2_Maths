@@ -19,10 +19,11 @@
     }
     return self;
 }
+//Iterate through the array and add all the times
 - (NSTimeInterval) totalTime
 {
     NSTimeInterval count = 0;
-    for (AdditionQuestion *q in self.questions){
+    for (Question *q in self.questions){
         count += [q answerTime];
     }
     return count;

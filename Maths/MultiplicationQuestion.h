@@ -1,5 +1,5 @@
 //
-//  AdditionQuestion.h
+//  MultiplicationQuestion.h
 //  Maths
 //
 //  Created by Trevor MacGregor on 2017-03-09.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Question.h"
 
-@interface AdditionQuestion : Question
+@interface MultiplicationQuestion : Question
 
 -(void)generateQuestion;
 

@@ -7,21 +7,32 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AdditionQuestion.h"
+#import "Question.h"
 #import "InputHandler.h"
 #import "ScoreKeeper.h"
 #import "QuestionManager.h"
+#import "AdditionQuestion.h"
+#import "SubtractionQuestion.h"
+#import "MultiplicationQuestion.h"
+#import "DivisionQuestion.h"
+#import "QuestionFactory.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        
+        BOOL gameOn = YES;
         ScoreKeeper *score = [[ScoreKeeper alloc]init];
         QuestionManager *questionsManager = [[QuestionManager alloc]init];
+        QuestionFactory *questionFactory = [[QuestionFactory alloc]init];
+        InputHandler *inputHandler = [[InputHandler alloc]init];
         
-        int x = 1;
-        while (x == 1){
+        while (gameOn){
             
-            //Call our random number addition method
-            AdditionQuestion *startQuestion = [[AdditionQuestion alloc]init];
+            //Call our random number addition method OLD WAY
+            //Question *startQuestion = [[Question alloc]init];
+            
+            //Call our random number addition method NEW WAY using question factory
+            Question *startQuestion = [questionFactory generateRandomQuestion];
             NSLog(@"%@", startQuestion.question);
             
             //Call our user input resultTrimmed method

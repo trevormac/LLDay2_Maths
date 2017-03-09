@@ -1,18 +1,16 @@
 //
-//  InputHandler.h
+//  QuestionFactory.h
 //  Maths
 //
-//  Created by Trevor MacGregor on 2017-03-07.
+//  Created by Trevor MacGregor on 2017-03-09.
 //  Copyright © 2017 Trevor MacGregor. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "Question.h"
 
+@interface QuestionFactory : NSObject
 
-@interface InputHandler : NSObject
-
-+ (NSString *)resultTrimmed;
-
+-(Question *)generateRandomQuestion;
 
 @end
